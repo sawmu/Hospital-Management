@@ -1,11 +1,35 @@
-# .NET / ASP.NET Core
+# Build results
 bin/
 obj/
+
+# User-specific files
 *.user
 *.suo
 *.userosscache
 *.sln.iml
+
+# IDE folders
 .vscode/
+.idea/
 .DS_Store
+
+# Logs and temp files
+*.log
+*.vspscc
+*.pidb
+*.tmp
+
+# Node modules (if you use front-end)
 node_modules/
-*.db
+
+# Configuration and secrets
+appsettings.*.local.json
+secrets.json
+
+# Databases and backups
+*.mdf
+*.ldf
+*.bak
+
+# Publish folders
+wwwroot/lib/
