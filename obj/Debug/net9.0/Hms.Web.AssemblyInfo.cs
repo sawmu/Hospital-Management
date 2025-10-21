@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hms.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c3d3faf6fbfcecb5a9651aafa5cf1bda02f6e87")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ced797f2a5ce726f8a5789da2adbf014e15e979b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hms.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hms.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
