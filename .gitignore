@@ -1,7 +1,11 @@
+# .NET / ASP.NET Core
 bin/
 obj/
-.vscode/
 *.user
 *.suo
-*.DS_Store
+*.userosscache
+*.sln.iml
+.vscode/
+.DS_Store
 node_modules/
+*.db
