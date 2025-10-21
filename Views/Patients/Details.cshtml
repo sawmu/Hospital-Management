@@ -1,0 +1,11 @@
+@model Hms.Web.Models.Patient
+@{ ViewData["Title"] = "Patient Details"; }
+<h2>@Model.FullName</h2>
+<dl class="row">
+  <dt class="col-sm-3">MRN</dt><dd class="col-sm-9">@Model.MRN</dd>
+  <dt class="col-sm-3">DOB</dt><dd class="col-sm-9">@Model.DOB?.ToString("yyyy-MM-dd")</dd>
+  <dt class="col-sm-3">Gender</dt><dd class="col-sm-9">@Model.Gender</dd>
+  <dt class="col-sm-3">Phone</dt><dd class="col-sm-9">@Model.Phone</dd>
+  <dt class="col-sm-3">Email</dt><dd class="col-sm-9">@Model.Email</dd>
+</dl>
+<a class="btn btn-secondary" href="/Patients">Back</a>

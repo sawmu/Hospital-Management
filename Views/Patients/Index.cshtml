@@ -1,0 +1,31 @@
+@model IEnumerable<Hms.Web.Models.Patient>
+@{
+    ViewData["Title"] = "Patients";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Patients</h2>
+  <a class="btn btn-primary" href="/Patients/Create">New Patient</a>
+</div>
+<form class="row g-2 mb-3">
+  <div class="col-auto"><input name="search" value="@ViewBag.Search" class="form-control" placeholder="Search MRN/name" /></div>
+  <div class="col-auto"><button class="btn btn-outline-secondary" type="submit">Search</button></div>
+</form>
+<table class="table table-striped table-sm">
+  <thead><tr><th>MRN</th><th>Name</th><th>DOB</th><th>Phone</th><th></th></tr></thead>
+  <tbody>
+  @foreach (var p in Model)
+  {
+    <tr>
+      <td>@p.MRN</td>
+      <td>@p.FullName</td>
+      <td>@p.DOB?.ToString("yyyy-MM-dd")</td>
+      <td>@p.Phone</td>
+      <td>
+        <a class="btn btn-sm btn-outline-info" href="/Patients/Details/@p.Id">View</a>
+        <a class="btn btn-sm btn-outline-primary" href="/Patients/Edit/@p.Id">Edit</a>
+        <a class="btn btn-sm btn-outline-danger" href="/Patients/Delete/@p.Id">Delete</a>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>

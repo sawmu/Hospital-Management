@@ -1,0 +1,9 @@
+@model Hms.Web.Models.Patient
+@{ ViewData["Title"] = "Delete Patient"; }
+<h2>Delete @Model.FullName?</h2>
+<form asp-action="Delete" method="post">
+  <input type="hidden" asp-for="Id" />
+  <button class="btn btn-danger">Confirm Delete</button>
+  <a class="btn btn-secondary" href="/Patients">Cancel</a>
+  
+</form>
