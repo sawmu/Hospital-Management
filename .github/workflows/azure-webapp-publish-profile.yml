@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 env:
-  AZURE_WEBAPP_NAME: hms-web        # <-- change to your App Service name
+  AZURE_WEBAPP_NAME: hms        # <-- change to your App Service name
   DOTNET_VERSION: "9.0.x"
   WEB_PROJECT_PATH: "."       # <-- change if your .csproj is elsewhere
 
