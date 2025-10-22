@@ -14,4 +14,5 @@ public class Patient
     [EmailAddress, StringLength(120)] public string? Email { get; set; }
     public DateTime CreatedAtUtc { get; set; }
     public string FullName => $"{FirstName} {LastName}";
+    // public string FullName => $"{FirstName} {LastName}";
 }
