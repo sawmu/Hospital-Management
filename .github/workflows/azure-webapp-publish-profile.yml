@@ -1,0 +1,61 @@
+name: Build & Deploy ASP.NET Core to Azure App Service (Publish Profile)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  AZURE_WEBAPP_NAME: hms-web        # <-- change to your App Service name
+  DOTNET_VERSION: "9.0.x"
+  WEB_PROJECT_PATH: "."       # <-- change if your .csproj is elsewhere
+
+jobs:
+  build_test_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore
+        run: dotnet restore
+        working-directory: ${{ env.WEB_PROJECT_PATH }}
+
+      - name: Build (Release)
+        run: dotnet build -c Release --no-restore
+        working-directory: ${{ env.WEB_PROJECT_PATH }}
+
+      - name: Publish
+        run: dotnet publish -c Release -o ./publish --no-build
+        working-directory: ${{ env.WEB_PROJECT_PATH }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: webapp
+          path: ${{ env.WEB_PROJECT_PATH }}/publish
+
+  deploy:
+    needs: build_test_publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: webapp
+          path: ./publish
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./publish
