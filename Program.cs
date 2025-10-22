@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
+
 // Identity + default UI
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
