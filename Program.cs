@@ -24,6 +24,13 @@ builder.Services.AddRazorPages(); // Identity UI
 
 var app = builder.Build();
 
+// ... Migrations in production
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); // creates DB/tables if missing, updates schema
+}
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
