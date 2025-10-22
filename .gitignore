@@ -20,7 +20,7 @@ obj/
 *.tmp
 
 # Node modules (if you use front-end)
-# node_modules/
+node_modules/
 
 # Configuration and secrets
 appsettings.*.local.json
@@ -33,4 +33,11 @@ secrets.json
 
 # Publish folders
 wwwroot/lib/
-wwwroot/lib/
+wwwroot/lib/bin/
+obj/
+.vscode/
+.DS_Store
+node_modules/
+*.mdf
+*.ldf
+*.bak
